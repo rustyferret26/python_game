@@ -1,37 +1,23 @@
-import messages
-import blinkt
+import select
+import game_one
+#import game_two
+#import game_three
+#import game_four
 import time
-import pygame
-import os
 
-os.environ['SDL_VIDEODRIVER'] = "dummy"
+# Get level choice from user
+game = select.game()
+print("level variable set as {}".format(level))
 
-pygame.init()
-pygame.joystick.init()
-pad=pygame.joystick.Joystick(0)
-pad.init()
-clock=pygame.time.Clock()
-pygame.display.set_mode((1,1))
-game_choice=1
-
-in_game=True
-while in_game==True:
-	for event in pygame.event.get():
-		if event.type==pygame.JOYBUTTONDOWN and pad.get_button(5)==1:
-			print("Game change")
-			if game_choice < 8:
-				game_choice += 1
-				print("game_choice: {}".format(game_choice))
-				print("+1")
-			elif game_choice == 8:
-				messages.Error()
-		elif event.type==pygame.JOYBUTTONDOWN and pad.get_button(4)==1:
-			print("level change")
-			if game_choice > 1:
-				game_choice -=1
-				print("game_choice: {}".format(game_choice))
-				print("-1")
-			elif game_choice == 1:
-				messages.Error()
-	messages.game_lights(game_choice)
-	clock.tick(30)
+if game==1:
+	print("starting game_one()")
+	game_one()
+elif game==2:
+	print("starting game_two()")
+#	game_two()
+elif game==3:
+	print("starting game_three()")
+#	game_three()
+elif game==4:
+	print("starting game_four()")
+#	game_four()

@@ -1,4 +1,3 @@
-import blinkt
 import time
 import random
 
@@ -10,7 +9,7 @@ def Error():
 	br=0.2 # brightness from 0.05 - 1
 	t=0.02 # time in seconds between pixel change
 	print("Error!")
-	for i in range(0,6): # times to strobe
+	for i in range(0,10): # times to strobe
 		for i in range((blinkt.NUM_PIXELS)-n):
 			px_a=(i+n)
 			px_b=7-(i+n)
@@ -20,9 +19,8 @@ def Error():
 			time.sleep(t)
 			blinkt.clear()
 			blinkt.show()
-	return
 
-def Wait(s):
+def Wait(seconds):
 	done=False
 	start=time.time()
 	print("Waiting for {}".format(waiting_for))
@@ -36,7 +34,7 @@ def Wait(s):
 			blinkt.show()
 			end=time.time()
 			elapsed=end-start
-			if elapsed>s:
+			if elapsed>seconds:
 				blinkt.clear()
 				blinkt.show()
 				done=True
@@ -49,9 +47,3 @@ def Success():
 			blinkt.show()
 
 
-def game_lights(game_choice):
-	n = game_choice
-	blinkt.clear()
-	blinkt.set_pixel((n+(n-1)-1),200,200,200,0.2)
-	blinkt.set_pixel((n*2)-1,200,200,200,0.2)
-	blinkt.show()
