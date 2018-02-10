@@ -1,17 +1,23 @@
-import select
+import user_select
 import game_one
-#import game_two
-#import game_three
-#import game_four
 import time
 
 # Get level choice from user
-game = select.game()
-print("level variable set as {}".format(level))
+print("Please select a game")
+game = user_select.game()
 
 if game==1:
-	print("starting game_one()")
-	game_one()
+	print("Game one selected, please select the difficulty..")
+	difficulty=user_select.difficulty()
+	print("Difficulty level {}, starting game..".format(difficulty))
+	if difficulty==1:
+		game_one.diff_one()
+	elif difficulty==2:
+		game_one.diff_two()
+	elif difficulty==3:
+		game_one.diff_three()
+	elif difficulty==4:
+		game_one.diff_four()
 elif game==2:
 	print("starting game_two()")
 #	game_two()

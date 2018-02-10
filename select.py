@@ -35,7 +35,7 @@ def game():
 		messages.game_lights(game_choice)
 		clock.tick(30)
 
-def diffifculty():
+def difficulty():
 	diff_choice=1
 
 	while True:

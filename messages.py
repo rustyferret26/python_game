@@ -55,3 +55,25 @@ def game_lights(game_choice):
 	blinkt.set_pixel((n+(n-1)-1),200,200,200,0.2)
 	blinkt.set_pixel((n*2)-1,200,200,200,0.2)
 	blinkt.show()
+
+def diff_lights(diff_choice):
+	if diff_choice==1:
+		diff_bar(0.2,0,0,0)
+	elif diff_choice==2:
+		diff_bar(0.2,0.2,0,0)
+	elif diff_choice==3:
+		diff_bar(0.2,0.2,0.2,0)
+	elif diff_choice==4:
+		diff_bar(0.2,0.2,0.2,0.2)
+
+def diff_bar(br_1,br_2,br_3,br_4):
+	blinkt.clear()
+	blinkt.set_pixel(0,0,255,0,br_1)
+	blinkt.set_pixel(1,100,255,0,br_1)
+	blinkt.set_pixel(2,140,255,0,br_2)
+	blinkt.set_pixel(3,210,230,0,br_2)
+	blinkt.set_pixel(4,255,205,0,br_3)
+	blinkt.set_pixel(5,255,140,0,br_3)
+	blinkt.set_pixel(6,255,50,0,br_4)
+	blinkt.set_pixel(7,255,0,0,br_4)
+	blinkt.show()
