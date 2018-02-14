@@ -26,4 +26,17 @@ def SetLights(r,g,b,br,s,x):
 		blinkt.show()
 		time.sleep(s/2)
 
+def msg(r,g,b):
+	n=4
+	for i in range(0,6):
+		for i in range((blinkt.NUM_PIXELS)-n):
+			px_a=(i+n)
+			px_b=7-(i+n)
+			blinkt.set_pixel(px_a,r,g,b,0.2)
+			blinkt.set_pixel(px_b,r,g,b,0.2)
+			blinkt.show()
+			time.sleep(0.02) # Speed
+			blinkt.clear()
+			blinkt.show()
+
 

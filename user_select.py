@@ -2,20 +2,13 @@ import messages
 import blinkt
 import time
 import pygame
-import os
 import DS4
 
-os.environ['SDL_VIDEODRIVER'] = "dummy"
-
-# Initialize pygame and everything that's needed with it.
-pygame.init()
-pygame.joystick.init()
-pad=pygame.joystick.Joystick(0)
-pad.init()
 clock=pygame.time.Clock()
-pygame.display.set_mode((1,1))
 
 def game():
+	import main
+	pad=main.Pad()
 	# Default game choice.
 	game_choice=1
 
@@ -38,6 +31,8 @@ def game():
 		clock.tick(30)
 
 def difficulty():
+	import main
+	pad=main.Pad()
 	# Default difficulty choice.
 	diff_choice=1
 
@@ -60,6 +55,8 @@ def difficulty():
 		clock.tick(30)
 
 def get_btn():
+	import main
+	pad=main.Pad()
 	x=False
 	while x==False:
 		for event in pygame.event.get():
@@ -87,3 +84,11 @@ def get_btn():
 			#	x=True
 			#	return choice
 		clock.tick(30)
+
+
+def x_pressed():
+	for event in pygame.event.get():
+		if event.type==pygame.JOYBUTTONDOWN:
+			if pad.get_button(DS4.Cross())==1:
+				print("X")
+				return True

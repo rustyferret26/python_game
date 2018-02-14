@@ -1,6 +1,22 @@
+import pygame
 import user_select
 import game_one
+import game_two
 import time
+import controller_test
+import os
+
+os.environ['SDL_VIDEODRIVER']="dummy"
+
+# Initialize all things pygame
+pygame.init()
+pad=pygame.joystick.Joystick(0)
+pad.init()
+clock=pygame.time.Clock()
+pygame.display.set_mode((1,1,))
+
+def Pad():
+	return pad
 
 # Get level choice from user
 print("Please select a game")
@@ -20,10 +36,13 @@ if game==1:
 		game_one.diff_four()
 elif game==2:
 	print("starting game_two()")
-#	game_two()
+	game_two.Init(2)
 elif game==3:
 	print("starting game_three()")
 #	game_three()
 elif game==4:
 	print("starting game_four()")
-#	game_four()
+	while True:
+		test = controller_test.PS4Controller()
+		test.init()
+		test.listen()

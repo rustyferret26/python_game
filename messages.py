@@ -21,7 +21,6 @@ def Error():
 			blinkt.clear()
 			blinkt.show()
 	return
-
 def Wait(s):
 	done=False
 	start=time.time()
