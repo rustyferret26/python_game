@@ -1,3 +1,4 @@
+
 import blinkt
 import time
 
@@ -40,3 +41,32 @@ def msg(r,g,b):
 			blinkt.show()
 
 
+def blink_right(s):
+	r,g,b,br=200,200,200,0.2
+	for i in range(blinkt.NUM_PIXELS):
+		blinkt.clear()
+		blinkt.set_pixel(i,r,g,b,br)
+		blinkt.show()
+		time.sleep((s/blinkt.NUM_PIXELS)/2)
+	blinkt.clear()
+	blinkt.show()
+	time.sleep(s/2)
+
+def blink_left(s):
+	r,g,b,br=200,200,200,0.2
+	for i in range(blinkt.NUM_PIXELS):
+		blinkt.clear()
+		blinkt.set_pixel(7-i,r,g,b,br)
+		blinkt.show()
+		time.sleep((s/blinkt.NUM_PIXELS)/2)
+	blinkt.clear()
+	blinkt.show()
+	time.sleep(s/2)
+
+def set_by_pixel(px,r,g,b,br):
+	blinkt.set_pixel(px,r,g,b,br)
+	blinkt.show()
+
+def clear_all():
+	blinkt.clear()
+	blinkt.show()

@@ -14,6 +14,8 @@ pad=pygame.joystick.Joystick(0)
 pad.init()
 clock=pygame.time.Clock()
 pygame.display.set_mode((1,1,))
+g2=game_two.init()
+
 
 def Pad():
 	return pad
@@ -34,12 +36,15 @@ if game==1:
 		game_one.diff_three()
 	elif difficulty==4:
 		game_one.diff_four()
+
 elif game==2:
 	print("starting game_two()")
-	game_two.Init(2)
+	g2.init()
+
 elif game==3:
 	print("starting game_three()")
 #	game_three()
+
 elif game==4:
 	print("starting game_four()")
 	while True:
