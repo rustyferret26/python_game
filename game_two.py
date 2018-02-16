@@ -51,10 +51,14 @@ class init(object):
 		user_choice = input("Would you like to enter your name to save your score? (Type 'yes/no'): ")
 		if user_choice=="yes" or user_choice=="Yes":
 			name = input("Awesome! So, what is your name?: ")
-			print("Thanks {}! You're score has been posted to <URL>".format(name))
+			self.post_results(name)
+			print("Thanks {}! You're score has been posted to http://bondgame.twentysixstaging.com/".format(name))
 		else:
 			print("Thanks! Goodbye.")
 
+	def post_results(self,name):
+		response = requests.post("http://bondgame.twentysixstaging.com/score/save?playerName=" + str(name) + "&score=" + str(self.points))
+		print(response)
 
 	def init(self):
 		pad=controller_test.Controller()
@@ -98,6 +102,5 @@ class init(object):
 				x=False
 
 		self.print_results()
-
 
 
